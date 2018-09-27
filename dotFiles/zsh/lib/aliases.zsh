@@ -2,6 +2,7 @@ alias ssh='ssh -Y'
 alias ls='ls --color'
 alias ll='ls -lhc'
 alias la='ls -alhc'
+alias less='less -R'
 alias root='root -l'
 alias pack="tar -pczf"
 alias clang++='clang++ -std=c++11'
