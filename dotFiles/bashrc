@@ -8,6 +8,10 @@ if test "`uname`" = Linux; then
     fi
 fi
 
+if [ `command -v zsh` ]; then
+    zsh
+fi
+
 #tty -s && find /home/ddmi/ddmi -name .last_run_of_cronjob -ctime 1 -printf "  ----------------------------------------------------------------------- \n   Cronjob not running! \n  ----------------------------------------------------------------------- \n  -----------------------------------------------------------------------\n"
 
 #tty -s && cat /home/ddmi/ddmi/newusers
