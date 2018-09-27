@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+FILE=$1/tstfile-aevcxfaew
+
+echo -n "Write test: ... = "
+dd if=/dev/zero bs=1024k of=${FILE} count=1024 2>&1 | grep sec | awk '{print $1 / 1024 / 1024 / $5, "MB/sec" }'
+# sudo purge $1
+echo -n "Read test: ...  = "
+dd if=${FILE} bs=1024k of=/dev/null count=1024 2>&1 | grep sec | awk '{print $1 / 1024 / 1024 / $5, "MB/sec" }'
+rm ${FILE}

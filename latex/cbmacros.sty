@@ -1,0 +1,556 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Paketeinbindung und Umgebungsdefinitionen
+%
+
+
+\usepackage[a4paper,nofoot,top=30mm,left=20mm,right=40mm,bottom=20mm,headheight=20pt]{geometry}
+%\linespread{1.2}
+\usepackage{ifthen}			% erlaubt den \ifthenelse command
+%Standardeinstellungen
+\providecommand{\einseitig}{1}
+\providecommand{\Counter}{1}
+\providecommand{\comments}{0}        % comments     0 = off, 1 = on 
+					%setzte comment auf "an" falls nich anders definiert
+\providecommand{\deficounter}{CntA}	
+\providecommand{\theoremcounter}{CntA}
+\providecommand{\lemmacounter}{CntA}
+\providecommand{\satzcounter}{CntA}
+\providecommand{\folgerungcounter}{CntA}
+\providecommand{\beispielcounter}{CntB}
+
+
+%Pakete
+							
+\usepackage[T1]{fontenc}			%erlaubt Silbertrennung von Wörtern mit Sonderzeichen
+\usepackage{textcomp}
+\usepackage[ngerman]{babel}    		% Sonderzeichen
+\usepackage[latin1]{inputenc}
+\usepackage{makeidx}				% erlaubt Indexerzeugung
+\parindent0pt					% setzt Zeileneinzug auf 0
+							
+\usepackage{xcolor}				% stellt viele Farben bereit
+\usepackage{marginnote}			% benötigt für Randnotizen
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{mathmacs}
+\usepackage{dsfont}
+\usepackage{stmaryrd}
+
+
+\usepackage{tikz}				% Grafikumgebung
+\usetikzlibrary{calc}
+\usetikzlibrary{patterns}
+
+
+\usepackage{wrapfig}
+\usepackage{framed}
+\usepackage{fancyhdr}          % Kopfzeilenpaket
+\usepackage{colortbl}          % farbige Tabellenelemente
+\usepackage[shortlabels]{enumitem}         % erweiterte Funktionen für die equation-Umgebung
+\usepackage{graphicx}          % Einbindung von EPS-Grafiken
+\usepackage{longtable}         % Tabellen, die über mehrere Seiten gehen
+\usepackage{calc}              % Berechnung von metrischen Werten (z.B. \textwidth-2mm)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Farben
+%
+
+\providecolor{notebox_bg}{rgb}{1,1,0.4}
+\providecolor{notebox_r}{rgb}{0,0,0}
+\providecolor{partcolor}{rgb}{.176,0,.367}
+\providecolor{chaptercolor}{rgb}{.176,0,.367}
+\providecolor{sectioncolor}{rgb}{.176,0,.367}
+\providecolor{paragraphcolor}{rgb}{.176,0,.367}
+\providecolor{shadecolor}{gray}{0.95}
+\providecolor{beispiel_bg}{rgb}{1,1,1}
+\providecolor{beispiel_r}{rgb}{0,0,0}
+\providecolor{lemma_bg}{gray}{0.95}
+\providecolor{lemma_r}{rgb}{1,1,1}
+\providecolor{defi_bg}{gray}{0.95}
+\providecolor{defi_r}{rgb}{1,1,1}
+\providecolor{theorem_bg}{gray}{0.95}
+\providecolor{theorem_r}{rgb}{1,1,1}
+\providecolor{satz_bg}{gray}{0.95}
+\providecolor{satz_r}{rgb}{1,1,1}
+\providecolor{folgerung_bg}{gray}{0.95}
+\providecolor{folgerung_r}{rgb}{1,1,1}
+\providecolor{warnung_bg}{gray}{0.95}
+\providecolor{warnung_r}{rgb}{1,1,1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	eigene Befehle
+
+	% \co{} - für Randnotizen
+
+\ifthenelse{ \equal {\comments}{1}}{
+\ifthenelse{%if
+ \equal{\einseitig}{1}
+ }{%then
+\newcommand{\co}[1]{\marginnote{\fcolorbox{notebox_r}{notebox_bg}{
+    \parbox{\dimexpr\marginparwidth+7.5\fboxsep\relax}{\raggedright {#1}}}}}
+    }{%else
+\newcommand{\co}[1]{\marginnote{\fcolorbox{notebox_r}{notebox_bg}{
+    \parbox{\dimexpr\marginparwidth-10pt}{\raggedright {#1}}}}}    
+    }}{\newcommand{\co}[1]{}}
+    
+    	% \CO{} - für große Notizen
+
+\ifthenelse{ \equal {\comments}{1}}{
+\newcommand{\CO}[1]{\text{}\smallskip
+
+ \fcolorbox{notebox_r}{notebox_bg}{
+    \parbox{0.9\textwidth}{\raggedright {#1}}}\text{ } \smallskip
+    
+    }}
+    {\newcommand{\CO}[1]{}}
+
+	% \Partial[]{}
+\newcommand{\Partial}[2][]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+
+\renewcommand{\div}{\ensuremath{\operatorname{div}}}
+
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\Kern}{Ker}
+\DeclareMathOperator{\lin}{lin}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Grad}{Grad}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Textformatierung
+%
+
+% 		Überschriften
+
+\addtokomafont{part}{\normalfont\Huge\bfseries\sffamily\color{partcolor}}
+\addtokomafont{partnumber}{\normalfont\Huge\bfseries\sffamily\color{partcolor}}
+\addtokomafont{chapter}{\normalfont\Huge\bfseries\sffamily\color{lightgray}\hspace*{0cm}}
+\addtokomafont{section}{\normalfont\Large\bfseries\sffamily\color{gray}\hspace*{0cm}}
+\addtokomafont{subsection}{\normalfont\Large\sffamily\bfseries\color{gray}\hspace*{0cm}}
+\addtokomafont{subsubsection}{\normalfont\large\sffamily\bfseries\color{gray}\hspace*{0cm}}
+\addtokomafont{paragraph}{\normalfont\normalsize\bfseries\sffamily\color{black}\hspace*{0cm}}
+\addtokomafont{subparagraph}{\normalfont\normalsize\itshape\sffamily\color{black}\hspace*{0cm}}
+
+
+% Kopfzeile
+
+\pagestyle{fancy}
+\ifthenelse{%if
+\equal{\einseitig}{1}
+}{%then
+\fancyhf{}
+\fancyhead[L]{\rm \rightmark}			% Kapitel links innen 
+\fancyhead[R]{\thepage}		% Abschnitt rechts innen
+}{%else
+\fancyhf{}
+\fancyhead[EL]{{\textbf{ \thepage}}\;\; \rm \leftmark}			
+\fancyhead[OR]{\rm \rightmark \;\; {\textbf{ \thepage}}}	
+}
+%\renewcommand{\chaptermark}[1]{ \markboth{\thechapter{} #1}{}}
+%\renewcommand{\sectionmark}[1]{ \markboth{\thesection{} #1}{}	%nächsten Zeilen sorgen für Kleinschreibung in Kapitel bzw. Abschnittsbezeichnungen
+%} 
+%\renewcommand{\subsectionmark}[1]{
+%\markright{\thesubsection{} #1}
+%}
+
+\renewcommand\headrulewidth{0pt}
+
+
+%		Umgebungen
+  
+%}
+
+
+% 				benötigte Befehle
+
+%Parameter: Name der folgenden Box, Titel, Breite der linken Spalte (mit dem Boxnamen)
+%\newcommand{\generictitle}[3]
+%{
+%\ifthenelse{\equal{#2}{}}{\;\;#1}{\;\;#1 \quad (#2)}
+%\begin{tabular}{@{}p{#3}@{}p{0.5\textwidth-15.5pt}@{}}
+%\\[-5pt]
+%#1& { } \hfill #2\\[4pt]
+%\end{tabular}
+%}
+
+%%%%%%%%%%%%
+%Umgebungen / Counter
+
+\newlength{\rahmenstaerkes}
+\setlength{\rahmenstaerkes}{\arrayrulewidth}			%Rahmenstärke in sonstigen Tabellen
+
+
+\ifthenelse{ \equal {\Counter}{1}}	% Definitionen, Sätze, Theoreme, etc.
+ {\newcounter{CntA}[chapter]
+ \renewcommand\theCntA{\thechapter.\arabic{CntA}}
+ }
+ {\ifthenelse{\equal{\Counter}{2}}
+ {\newcounter{CntA}[section] % Definitionen, Sätze, Theoreme, etc.
+ \renewcommand\theCntA{\thesection.\arabic{CntA}}}{}}
+
+\ifthenelse{ \equal {\Counter}{1}}	% Bsp
+ {\newcounter{CntB}[chapter]
+ \renewcommand\theCntB{\thechapter.\arabic{CntB}}
+ }
+ {\ifthenelse{\equal{\Counter}{2}}
+ {\newcounter{CntB}[section] % Beispiele
+ \renewcommand\theCntB{\thesection.\arabic{CntB}}}{}}
+
+\newcommand{\generictitle}[2]
+{
+\ifthenelse{\equal{#2}{}}{\textbf{#1}}{\textbf{#1 (#2)}}
+}
+
+\newenvironment{eingerueckt}[1]{
+
+ \begin{minipage}[t]{0.26\textwidth}
+\emph{#1}
+\end{minipage} \hfill \begin{minipage}[t]{0.7\textwidth}
+}{\end{minipage}\medskip
+
+}
+
+%Definitionsumgebung
+\ifthenelse{\equal{\deficounter}{CntA}}
+{\newcommand{\thedeficounter}{\theCntA}}
+{
+\ifthenelse{\equal{\deficounter}{CntB}}
+{\newcommand{\thedeficounter}{\theCntA}}
+}
+
+\newenvironment{defi}[1][]{
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{defi_r}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{defi_bg}}p{\textwidth-15.5pt}|}
+		\endhead\hline\stepcounter{\satzcounter}\\[-10pt]
+		\endfirsthead\hline\endlastfoot
+		\addtocounter{\deficounter}{-1}\refstepcounter{\deficounter}\!\!\generictitle{Definition \thedeficounter}{#1}}
+		{\rm\\[5pt] 
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+
+\newenvironment{defi*}[1][]{	
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{defi_r} \setlength{\arrayrulewidth}{\rahmenstaerkeu}\setlength{\arrayrulewidth}{\rahmenstaerkeu}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{defi_bg}}p{\textwidth-15.5pt}|}
+		\endhead\hline \\[-10pt]
+		\endfirsthead\endfoot\hline\endlastfoot
+		\!\!\generictitle{\textbf{Definition}}{#1}}
+		{\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+
+%Satzumgebung  	
+\ifthenelse{\equal{\satzcounter}{CntA}}
+{\newcommand{\thesatzcounter}{\theCntA}}
+{
+\ifthenelse{\equal{\satzcounter}{CntB}}
+{\newcommand{\thesatzcounter}{\theCntB}}
+}
+
+\newenvironment{satz}[1][]{
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{satz_r}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{satz_bg}}p{\textwidth-15.5pt}|}
+		\hline\stepcounter{\satzcounter}\\[-10pt]
+		\endfirsthead\hline\endlastfoot
+		\addtocounter{\satzcounter}{-1}\refstepcounter{\satzcounter}\!\!\generictitle{Satz \thesatzcounter}{#1}}
+		{\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+
+\newenvironment{satz*}[1][]{	
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{satz_r}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{satz_bg}}p{\textwidth-15.5pt}|}
+		\hline\\[-10pt]
+		\endfirsthead\endfoot\hline\endlastfoot
+		\!\!\generictitle{\textbf{Satz}}{#1}}
+		{ 
+		\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+	
+%Folgerung-umgebung  
+\ifthenelse{\equal{\folgerungcounter}{CntA}}
+{\newcommand{\thefolgerungcounter}{\theCntA}}
+{
+\ifthenelse{\equal{\folgerungcounter}{CntB}}
+{\newcommand{\thefolgerungcounter}{\theCntB}}
+}
+
+\newenvironment{folgerung}[1][]{
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{folgerung_r}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{folgerung_bg}}p{\textwidth-15.5pt}|}
+		\hline\stepcounter{\folgerungcounter}\\[-10pt]
+		\endfirsthead\hline\endlastfoot
+		\addtocounter{\folgerungcounter}{-1}\refstepcounter{\folgerungcounter}\!\!\generictitle{Folgerung \thefolgerungcounter}{#1}}
+		{\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+
+\newenvironment{folgerung*}[1][]{	
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{folgerung_r}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{folgerung_bg}}p{\textwidth-15.5pt}|}
+		\hline\\[-10pt]
+		\endfirsthead\endfoot\hline\endlastfoot
+		\!\!\generictitle{\textbf{Folgerung}}{#1}}
+		{ 
+		\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+	
+%Theoremumgebung  	
+\ifthenelse{\equal{\theoremcounter}{CntA}}
+{\newcommand{\thetheoremcounter}{\theCntA}}
+{
+\ifthenelse{\equal{\theoremcounter}{CntB}}
+{\newcommand{\thetheoremcounter}{\theCntB}}
+}
+
+\newenvironment{theorem}[1][]{
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{theorem_r}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{theorem_bg}}p{\textwidth-15.5pt}|}
+		\hline\stepcounter{\theoremcounter}\\[-10pt]
+		\endfirsthead\hline\endlastfoot
+		\addtocounter{\theoremcounter}{-1}\refstepcounter{\theoremcounter}\!\!\generictitle{Theorem \thetheoremcounter}{#1}}
+		{\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+
+\newenvironment{theorem*}[1][]{	
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{theorem_r}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{theorem_bg}}p{\textwidth-15.5pt}|}
+		\hline\\[-10pt]
+		\endfirsthead\endfoot\hline\endlastfoot
+		\!\!\generictitle{\textbf{Satz}}{#1}}
+		{ 
+		\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+	
+%Lemmaumgebung  		
+\ifthenelse{\equal{\lemmacounter}{CntA}}
+{\newcommand{\thelemmacounter}{\theCntA}}
+{
+\ifthenelse{\equal{\lemmacounter}{CntB}}
+{\newcommand{\thelemmacounter}{\theCntB}}
+}
+
+\newenvironment{lemma}[1][]{
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{lemma_r}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{lemma_bg}}p{\textwidth-15.5pt}|}
+		\hline\stepcounter{\lemmacounter}\\[-10pt]
+		\endfirsthead\hline\endlastfoot
+		\addtocounter{\lemmacounter}{-1}\refstepcounter{\lemmacounter}\!\!\generictitle{Lemma \thelemmacounter}{#1}}
+		{\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+
+\newenvironment{lemma*}[1][]{	
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{lemma_r}
+	\it
+	\begin{longtable}[l]{|>{\columncolor{lemma_bg}}p{\textwidth-15.5pt}|}
+		\hline\\[-10pt]
+		\endfirsthead\endfoot\hline\endlastfoot
+		\!\!\generictitle{\textbf{Lemma}}{#1}}
+		{ 
+		\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+	
+%Beispielumgebung  		Befehl: beispiel
+\ifthenelse{\equal{\beispielcounter}{CntA}}
+{\newcommand{\thebeispielcounter}{\theCntA}}
+{
+\ifthenelse{\equal{\beispielcounter}{CntB}}
+{\newcommand{\thebeispielcounter}{\theCntB}}
+}
+
+\newenvironment{beispiel}[1][]{
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{beispiel_r}
+	\begin{longtable}[l]{|>{\columncolor{beispiel_bg}}p{\textwidth-15.5pt}|}
+		\hline\stepcounter{\beispielcounter}\\[-10pt]
+		\endfirsthead\hline\endlastfoot
+		\addtocounter{\beispielcounter}{-1}\refstepcounter{\beispielcounter}\!\!\generictitle{Beispiel \thebeispielcounter}{#1}}
+		{\rm\\[5pt]
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+
+\newenvironment{beispiel*}[1][]{	
+	\setlength{\arrayrulewidth}{\rahmenstaerkeu} \arrayrulecolor{beispiel_r}
+	\begin{longtable}[l]{|>{\columncolor{beispiel_bg}}p{\textwidth-15.5pt}|}
+		\hline\\[-10pt]
+		\endfirsthead\endfoot\hline\endlastfoot
+		\!\!\generictitle{\textbf{Beispiel}}{#1}}
+		{\rm\\[5pt] 
+	\end{longtable}
+	\setlength{\arrayrulewidth}{\rahmenstaerkes} \arrayrulecolor{black}}
+	
+%Beweis
+	
+\newenvironment{beweis}[1][]{
+	\generictitle{\textit{Beweis:}}{#1}}
+		{
+		{} \hfill\begin{tabular} {r}
+			\text{ } \\[-18pt]
+			$\square$\\[-10pt]
+			\rule{0.2\textwidth}{0.5pt}
+			\end{tabular}\normalsize\medskip\\}
+
+\newenvironment{bemerkung}{
+	
+	\emph{Bemerkung:}\\}
+		{\vspace{5pt}
+		
+		}
+
+\newenvironment{warnung}[1][]{	
+	\arrayrulecolor{warnung_r}\it
+	\begin{longtable}[l]{|>{\columncolor{warnung_bg}}p{\textwidth-15.5pt}|}\hline\generictitle{\textbf{!Achtung!}}{#1}\endfirsthead\hline\endlastfoot}
+		{ 
+		\rm
+		\\
+	\end{longtable}
+	\arrayrulecolor{black}}
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Kurzbefehle
+
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Mathmacs.sty
+
+% from amsldoc, page 17.
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}		% Betrag
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}		% Norm
+
+
+% A complement to \smash, \llap, and \rlap. TUGboat 22 (2001), 350--352.
+% See http://math.arizona.edu/~aprl/publications/mathclap/
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}
+\def\mathllap{\mathpalette\mathllapinternal}
+\def\mathrlap{\mathpalette\mathrlapinternal}
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathllapinternal#1#2{%
+           \llap{$\mathsurround=0pt#1{#2}$}}
+\def\mathrlapinternal#1#2{%
+           \rlap{$\mathsurround=0pt#1{#2}$}}
+\def\mathclapinternal#1#2{%
+           \clap{$\mathsurround=0pt#1{#2}$}}
+
+
+% Support
+\DeclareMathOperator{\spt}{spt}
+
+% Indikatorfunktion
+\newcommand{\1}{\mathds{1}}
+\newcommand{\0}{\mathds{O}}
+
+% Abschluss, Inneres
+\providecommand{\cl}[1]{\overline{#1}}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\exterior}{ext}
+
+% also amsl doc
+\providecommand{\field}[1]{\ensuremath{\mathbb{#1}}}
+
+\providecommand{\N}{\mathds{N}}
+\providecommand{\Z}{\mathds{Z}}
+% true fields following now :)
+\providecommand{\Q}{\mathds{Q}}
+\providecommand{\R}{\mathds{R}}
+\providecommand{\C}{\mathds{C}}
+\providecommand{\K}{\mathds{K}} % generic Field == Körper
+
+\DeclareMathOperator{\TextRe}{Re}
+\DeclareMathOperator{\TextIm}{Im}
+\renewcommand{\Re}{\TextRe}
+\renewcommand{\Im}{\TextIm}
+
+% interior, with beauty (from yhmath, but hacked by me).
+\DeclareSymbolFont{yhmathsymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{yhmathsymbols}{"F3}
+\edef\@tempa#1#2{\def#1{\mathaccent\string"\noexpand\accentclass@#2 }}%
+\@tempa\ring{006} % that number is correct for MinionPro; was: 017.
+\newcommand{\widering}[1]{\smash{\ensuremath{\ring{\wideparen{#1}}}}}
+
+\let\textdef\textit
+\newcommand{\gdw}{\textit{gdw.}\xspace}
+
+% better-late-then-never-quantors
+\newcommand{\where}[1]{
+\mathchoice{\qquad\forall\,#1}%
+           {\,\ \forall\,#1}%
+           {\;\forall\,#1}%
+           {\;\forall\,#1}}
+% why not this?
+%\newcommand{\where}[1]{\quad (#1)}
+
+% sequence
+\newcommand{\seq}[1]{\ensuremath{(#1)}}			%Folgen
+\renewcommand{\matrix}[1]{\textbf{#1}}				%Matrixnamen
+\renewcommand{\vector}[1]{\overset{\rightarrow}{#1}}	%Vektor
+\newcommand{\scalarprod}[2]{\left\langle #1,#2\right\rangle}
+\newcommand{\ket}[1]{\left\lvert #1 \right\rangle }
+\newcommand{\bra}[1]{\left\langle #1 \right\rvert }
+\newcommand{\dotid}{\,\cdot\,}
+
+\newcommand{\U}{\mathcal{U}}
+
+\let\oldiff\iff
+\let\oldimplies\implies
+\renewcommand{\iff}[1][]{\ensuremath{\stackrel{\text{#1}}{\oldiff}}}
+\renewcommand{\implies}[1][]{\ensuremath{\stackrel{\text{#1}}{\oldimplies}}}
+
+\newcommand{\nimplies}{\mathrlap{\phantom{~~}\not}\implies}
+
+\DeclareMathOperator{\diam}{diam}
+
+\let\Oslash\O
+\let\oslash\o
+\newcommand{\Oo}{\mathrm{O}}
+\newcommand{\oo}{\mathrm{o}}
+
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hess}{Hess}
+
+\DeclareMathOperator{\rang}{rang}
+
+\providecommand{\D}{\mathrm{d}} % Gibt's im Springer-Stil schon.
+\newcommand{\dx}{\;\D x}
+\newcommand{\dy}{\;\D y}
+\DeclareMathOperator{\const}{const}
+
+\newcommand{\Qq}{\mathcal{Q}}
+\newcommand{\Rr}{\mathcal{R}}
+
+\newcommand{\Pot}{\mathcal{P}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Hyperref-Paket
+%
+
+
+\usepackage[pdftex,hyperfootnotes=false,pdfpagelabels,pagebackref,final]{hyperref}
+\hypersetup{pdfborder = 0 0 0}		%will als letztes eingebunden werden

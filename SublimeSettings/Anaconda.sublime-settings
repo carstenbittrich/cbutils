@@ -1,0 +1,8 @@
+{
+	"anaconda_gutter_marks": true,
+	"anaconda_gutter_theme": "retina",
+	"anaconda_linter_mark_style": "none",
+	// "anaconda_linter_show_errors_on_save": true,
+	"swallow_startup_errors": true,
+	"anaconda_linter_phantoms": false
+}

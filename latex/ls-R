@@ -1,0 +1,19 @@
+% ls-R -- filename database for kpathsea; do not change this line.
+./:
+README
+atlasnote.cls
+atlasphysics.sty
+axodraw4j.sty
+beamercolorthemegoerlitz.sty
+beamerfontthemegoerlitz.sty
+beamerouterthemegoerlitz.sty
+beamerthemeGoerlitz.sty
+cbmacros.sty
+exercise.sty
+feynmf.sty
+feynmp.sty
+floatflt.sty
+gnuplot-lua-tikz-common.tex
+gnuplot-lua-tikz.sty
+ls-R
+

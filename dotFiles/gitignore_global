@@ -1,0 +1,9 @@
+*~
+.DS_Store
+Egamma2010_current.C
+libEgamma2010.so
+Egamma2010.o
+Egamma2010_raw.C
+Debuglog.txt
+Dokumentation.pdf
+export.vcf

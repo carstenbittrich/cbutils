@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+set -e
+
+# generate key:
+# openssl genrsa -des3 -out private.pem 4092
+# openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+
+
+PUB_KEY=$HOME/.ssh/public.pem
+PRIV_KEY=$HOME/.ssh/private.pem
+
+# encrypt file
+echo "merging files"
+tar -cf input.tar $@ 
+openssl rand -base64 128 -out key.log;
+echo "encrypting tar ball"
+openssl enc -aes-256-cbc -salt -in input.tar -out input.tar.enc -pass file:./key.log
+openssl rsautl -encrypt -inkey $PUB_KEY -pubin -in key.log -out key.log.enc
+rm key.log
+echo "merging files and keys"
+tar -cf $1.enc.tar input.tar.enc key.log.enc
+rm input.tar key.log.enc input.tar.enc
+rm -rf $@

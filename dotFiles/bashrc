@@ -1,0 +1,22 @@
+if [ -z "$PS1" ]; then
+    return
+fi
+
+if test "`uname`" = Linux; then
+    if [ -f /etc/bashrc ]; then
+        source /etc/bashrc
+    fi
+fi
+
+#tty -s && find /home/ddmi/ddmi -name .last_run_of_cronjob -ctime 1 -printf "  ----------------------------------------------------------------------- \n   Cronjob not running! \n  ----------------------------------------------------------------------- \n  -----------------------------------------------------------------------\n"
+
+#tty -s && cat /home/ddmi/ddmi/newusers
+#tty -s && echo ""
+cd
+
+export PS1="[\t \u@\h \W]\$ "
+
+source ~/.environment.sh
+
+source .zsh/lib/functions.zsh
+source .zsh/lib/aliases.zsh

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+# generate key:
+# openssl genrsa -des3 -out private.pem 4092
+# openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+
+
+PUB_KEY=$HOME/.ssh/public.pem
+PRIV_KEY=$HOME/.ssh/private.pem
+
+# decrypt file
+echo "extracting container"
+tar -xzf $1
+INPUT=$(echo $1 | sed -e "s/.enc.tar//g") && \
+openssl rsautl -decrypt -inkey $PRIV_KEY -in key.log.enc -out key.log &&\
+echo "decrypting content"
+openssl enc -d -aes-256-cbc -in input.tar.enc -out input.tar -pass file:./key.log &&\
+echo "restore structure"
+tar -xf input.tar
+rm $1 ./key.log input.tar.enc key.log.enc input.tar
