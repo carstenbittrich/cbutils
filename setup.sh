@@ -49,7 +49,7 @@ then
 	if [ `basename $SHELL` != "zsh" ]
 	then
 		echo "Setting shell to zsh"
-		chsh -s /bin/zsh
+		chsh -s /bin/zsh || echo "... not successful"
 	fi
 else
 	echo "zsh not available, using fallback bash"
