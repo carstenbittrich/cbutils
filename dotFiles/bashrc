@@ -2,14 +2,14 @@ if [ -z "$PS1" ]; then
     return
 fi
 
+if [ `command -v zsh` ]; then
+    zsh
+fi
+
 if test "`uname`" = Linux; then
     if [ -f /etc/bashrc ]; then
         source /etc/bashrc
     fi
-fi
-
-if [ `command -v zsh` ]; then
-    zsh
 fi
 
 #tty -s && find /home/ddmi/ddmi -name .last_run_of_cronjob -ctime 1 -printf "  ----------------------------------------------------------------------- \n   Cronjob not running! \n  ----------------------------------------------------------------------- \n  -----------------------------------------------------------------------\n"
