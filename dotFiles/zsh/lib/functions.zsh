@@ -120,7 +120,7 @@ function goto_samples
     module load PyYAML 2>/dev/null || echo "Module PyYAML not available"
     module load python 2>/dev/null || echo "Module python not available"
     cd $SAMPLEBASE
-    athena_setup
+    setupATLAS
     lsetup rucio
     lsetup pyami
 
@@ -139,17 +139,16 @@ function goto_CAF
 
 function goto_ELCore
 {
-    if [ $ELCOREPATH != ""]; then
+    if [ $ELCOREPATH != "" ]; then
         cd $ELCOREPATH
         for mod in $ELCOREMODULES; do
             module load $mod
         done
         export OUTPUTDIR=$ELCOREOUTPUTDIR
         # export PATH=$HOME/Tool/GridTools/:$PATH
-        athena_setup
+        setupATLAS
         export GROUPDATA=/cvmfs/atlas.cern.ch/repo/sw/database/GroupData
         export GROUPWEB=http://atlas.web.cern.ch/Atlas/GROUPS/DATABASE/GroupData
-        source ${ATLAS_LOCAL_ROOT_BASE}/packageSetups/atlasLocalPandaClientSetup.sh --pandaClientVersion ${pandaClientVersionVal}
         source rcSetup.sh
         if [ -e $HOME/software/PyYAML/pyyaml-env.sh ]; then
             source $HOME/software/PyYAML/pyyaml-env.sh
