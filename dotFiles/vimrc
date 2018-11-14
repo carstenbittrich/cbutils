@@ -38,4 +38,6 @@ autocmd VimEnter * :noh
 syntax on
 " set color scheme 
 colorscheme smyck
+" turn on line numbers
+set number
 " ~/.vimrc ends here
