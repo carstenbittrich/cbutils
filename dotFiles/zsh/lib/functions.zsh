@@ -21,6 +21,11 @@ if [[ `uname` == "Darwin" ]]; then
         scp $@ /private/tmp/ropen_temp
         open /private/tmp/ropen_temp
     }
+
+    function sag
+    {
+        say -v "Yannick" "$@"
+    }
 else
     # functions that won't run on mac OS
 
