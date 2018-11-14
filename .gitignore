@@ -1,3 +1,4 @@
 python/*.pyc
 lists/brew-installed-list.txt
 dotFiles/environment.sh
+SublimeSettings/Package Control.cache/

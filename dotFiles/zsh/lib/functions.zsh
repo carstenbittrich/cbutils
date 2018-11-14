@@ -21,6 +21,11 @@ if [[ `uname` == "Darwin" ]]; then
         scp $@ /private/tmp/ropen_temp
         open /private/tmp/ropen_temp
     }
+
+    function sag
+    {
+        say -v "Yannick" "$@"
+    }
 else
     # functions that won't run on mac OS
 
@@ -139,9 +144,9 @@ function goto_CAF
 
 function goto_ELCore
 {
-    if [ $ELCOREPATH != "" ]; then
+    if [ ${ELCOREPATH} != "" ]; then
         cd $ELCOREPATH
-        for mod in $ELCOREMODULES; do
+        for mod in `echo $ELCOREMODULES`; do
             module load $mod
         done
         export OUTPUTDIR=$ELCOREOUTPUTDIR

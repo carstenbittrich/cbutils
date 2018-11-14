@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+if [ -z $1 ]; then
+    DIR=$1
+else
+    DIR=$PWD
+fi
+
+CURDIR=$PWD
+echo "DIR: $DIR"
+cd $DIR
+
+# rm old files
+if [ -e .sizes.log ]; then
+    rm .sizes.log
+fi
+if [ -e .nfiles.log ]; then
+    rm .nfiles.log
+fi
+
+# start new file
+DATE=`date`
+echo $DATE > .sizes.log
+echo $DATE > .nfiles.log
+
+for d in `ls`; do
+    # echo "============="
+    # echo "AT directory: $d"
+    SIZE=`du -hs $d | tr "\t" " " | cut -d " " -f 1`
+    # echo " - size: $SIZE"
+    echo "$SIZE for $d" >> .sizes.log
+    FILES=`find $d -type f | wc -l`
+    # echo " - number of files: $FILES"
+    echo "$FILES for $d">> .nfiles.log
+    printf "%8s for %8s files in: $d\n" $SIZE  $FILES
+done
+
+cd $CURDIR
