@@ -12,3 +12,5 @@ setopt long_list_jobs
 export PAGER=less
 export LC_CTYPE=$LANG
 
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
