@@ -8,6 +8,7 @@ alias pack="tar -pczf"
 alias clang++='clang++ -std=c++11'
 alias fuck='sudo $(history -p \!\!)'
 alias sshproxy='ssh -D 56789'
+alias nw='emacs -nw'
 
 alias ...='cd ../..'
 export IKTPWEB=iktpcopy:public_html
