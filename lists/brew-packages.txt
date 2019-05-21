@@ -14,6 +14,8 @@ ifstat
 imagemagick
 markdown
 modules
+mkvtoolnix
+mp4v2
 open-mpi
 openssl
 pidof
