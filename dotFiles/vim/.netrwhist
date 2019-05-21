@@ -1,4 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/amnt/remote/pkts08.raid1/users/bittrich/Run2/Derivations/Release21'
-let g:netrw_dirhist_2='/amnt/remote/pkthafc.home/bittrich/test'
