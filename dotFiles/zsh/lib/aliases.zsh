@@ -14,9 +14,10 @@ export IKTPWEB=iktpcopy:public_html
 export EDITOR="vim"
 
 # executables
-PATH=$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/python;
-PATH=$PATH:$CBUTILS/bin;
 PATH=/bin:$PATH;
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/python:$PATH;
+PATH=$CBUTILS/bin:$PATH;
+PATH=$HOME/bin:$PATH;
 export PATH
 
 ## python

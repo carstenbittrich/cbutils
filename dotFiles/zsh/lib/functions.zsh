@@ -43,7 +43,13 @@ function after() {
 
 function sshagentadd {
   eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_rsa
+  for KEY in id_{rsa,ed25519}
+  do
+    if [ -e $HOME/.ssh/${KEY} ]
+    then
+        ssh-add ~/.ssh/${KEY}
+    fi
+  done
 }
 
 function newest {
@@ -138,8 +144,11 @@ function goto_CAF
 {
     export CAFINPUT=$CAFPATH/Input/ELCore2CAF
     cd $CAFPATH
-    module load boost
-    module load root
+    for mod in `echo $CAFMODULES`; do
+        module load $mod
+    done
+    # module load boost
+    # module load root
 }
 
 function goto_ELCore

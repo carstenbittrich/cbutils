@@ -2,8 +2,12 @@ if [ -z "$PS1" ]; then
     return
 fi
 
-if [ `command -v zsh` ]; then
+if [ -e /bin/zsh ]; then
     zsh
+    source ~/.environment.sh
+
+	source .zsh/lib/functions.zsh
+	source .zsh/lib/aliases.zsh
 fi
 
 if test "`uname`" = Linux; then
@@ -20,7 +24,3 @@ cd
 
 export PS1="[\t \u@\h \W]\$ "
 
-source ~/.environment.sh
-
-source .zsh/lib/functions.zsh
-source .zsh/lib/aliases.zsh
