@@ -4,5 +4,7 @@
 	{ "keys": ["super+shift+alt+down"], "command": "select_lines", "args": {"forward": true} },
 	{ "keys": ["ctrl+h"], "command": "dash_doc"},
 	{ "keys": ["ctrl+alt+h"], "command": "dash_doc",
-		"args": { "flip_syntax_sensitive": true } }
+		"args": { "flip_syntax_sensitive": true } },
+    { "keys": ["ctrl+d"], "command": "goto_definition" },
+    { "keys": ["shift+ctrl+d"], "command": "goto_reference" }
 ]
