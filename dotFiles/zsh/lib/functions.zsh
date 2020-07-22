@@ -134,6 +134,14 @@ function goto_samples
     }
 }
 
+function goto_CAF66
+{
+    export CAFINPUT=$CAFPATH/Input/ELCore2CAF
+    cd $CAFPATH
+    module load boost66
+    module load root
+}
+
 function goto_CAF
 {
     export CAFINPUT=$CAFPATH/Input/ELCore2CAF

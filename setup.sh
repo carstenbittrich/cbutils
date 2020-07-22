@@ -4,6 +4,19 @@ CURDIR=$PWD
 
 if [ `uname` == "Darwin" ] # mac OS
 then
+	# check os version:
+	# sw_vers -productVersion
+
+	# xcode
+	if [ ! -e /usr/include ]
+	then
+		xcode-select --install
+		# also remember to add this line to shell config ($CBUTILS/dotFiles/environment.sh):
+		# export CPATH=`xcrun --show-sdk-path`/usr/include
+		# this was an alternative in mojave:
+		# sudo open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+	fi
+
 	# set up brew
 	if [ ! -e "/usr/local/bin/brew" ]
 	then
@@ -21,6 +34,8 @@ then
 	        brew install $name
 	    fi
 	done < lists/brew-packages.txt
+	# reinstall python2
+	brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/86a44a0a552c673a05f11018459c9f5faae3becc/Formula/python@2.rb
 
 	# install missing casks
 	while read line
