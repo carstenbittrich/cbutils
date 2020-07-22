@@ -5,7 +5,6 @@ alias la='ls -alhc'
 alias less='less -R'
 alias root='root -l'
 alias pack="tar -pczf"
-alias clang++='clang++ -std=c++11'
 alias fuck='sudo $(history -p \!\!)'
 alias sshproxy='ssh -D 56789'
 
@@ -22,3 +21,6 @@ export PATH
 ## python
 export PYTHONPATH=$PYTHONPATH:$CBUTILS/python
 export PYTHONTEMP=$CBUTILS/python/template.py
+
+## C++
+export CPPTEMP=$CBUTILS/templates/cpp
