@@ -8,14 +8,20 @@ x265
 ffmpeg --with-x265 --with-tools --with-opus
 fftw
 grip
+handbrake
 htop
 ifstat
 imagemagick
 markdown
 modules
+mkvtoolnix
 mp4v2
 open-mpi
 openssl
 pidof
+python
+python@2
+terminal-notifier
 wget
+youtube-dl
 zsh

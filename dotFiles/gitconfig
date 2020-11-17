@@ -1,6 +1,6 @@
 [user]
-	name = Carsten Bittrich
-	email = carsten.bittrich@icloud.com
+    name = Carsten Bittrich
+    email = carsten.bittrich@logmein.com
 [core]
     excludesfile = /Users/carsten/.gitignore_global
     quotepath = false

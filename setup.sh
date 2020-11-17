@@ -8,7 +8,7 @@ then
 	# sw_vers -productVersion
 
 	# xcode
-	if [ ! -e /usr/include ]
+	if [ ! -e `xcrun --show-sdk-path`/usr/include ]
 	then
 		xcode-select --install
 		# also remember to add this line to shell config ($CBUTILS/dotFiles/environment.sh):
@@ -35,7 +35,7 @@ then
 	    fi
 	done < lists/brew-packages.txt
 	# reinstall python2
-	brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/86a44a0a552c673a05f11018459c9f5faae3becc/Formula/python@2.rb
+	# brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/86a44a0a552c673a05f11018459c9f5faae3becc/Formula/python@2.rb
 
 	# install missing casks
 	while read line
@@ -57,6 +57,15 @@ then
 	fi
 	# what if zsh is not available on system without admin rights?
 fi
+
+# TODO: install oh-my-zsh
+
+# TODO: install zsh autosuggestions
+if [ -e OhMyZshCustom/plugins/zsh-autosuggestions ]
+then
+	git clone https://github.com/zsh-users/zsh-autosuggestions OhMyZshCustom/plugins/zsh-autosuggestions
+fi
+ln -s $PWD/OhMyZshCustom ~/.zsh/custom
 
 # set shell to zsh
 if [ `command -v zsh` ]
@@ -88,7 +97,7 @@ if [ `uname` == "Darwin" ]; then
 fi
 
 # environment
-ENVFILE=$CURDIR/dotFiles/environment.sh
+ENVFILE=~/.zsh/custom/environment.sh
 if [ ! -e $ENVFILE ]
 then
 	echo "Writing new environment file (please adjust if needed):"
@@ -104,20 +113,7 @@ then
 	echo "## path" >> $ENVFILE
 	echo 'PATH=$PATH'>> $ENVFILE
 	echo "" >> $ENVFILE
-	echo "## physics" >> $ENVFILE
-	echo "" >> $ENVFILE
-	echo "### Samples" >> $ENVFILE
-	echo "export SAMPLEBASE=$HOME" >> $ENVFILE
-	echo "" >> $ENVFILE
-	echo "### CAF" >> $ENVFILE
-	echo "export CAFPATH=$HOME" >> $ENVFILE
-	echo "export GTEST_REPO=$HOME" >> $ENVFILE
-	echo "" >> $ENVFILE
-	echo "### ELCore" >> $ENVFILE
-	echo "export ELCOREPATH=" >> $ENVFILE
-	echo "" >> $ENVFILE
-	echo "### OtherTools" >> $ENVFILE
-	echo "export OTHERTOOLS=" >> $ENVFILE
+	echo "export CPATH=`xcrun --show-sdk-path`/usr/include" >> $ENVFILE
 fi
 
 # link dotfiles
@@ -132,11 +128,9 @@ do
 done
 cd $CURDIR
 
-# other links
-if [ `uname` == "Darwin" ]
-then
-	ln -s "/Applications/Sublime Merge.app/Contents/SharedSupport/bin/smerge" /usr/local/bin/smerge
-fi
+# TODO: 
+# adjust git name and user to $GITUSER and $GITMAIL
+
 
 echo "======================="
 echo "Have set up everything."
