@@ -1,10 +1,8 @@
 1password
-alfred
 moom
 arq
 bartender
 daisydisk
-dash
 dropbox
 fantastical 2
 firefox
@@ -13,7 +11,6 @@ intel-power-gadget
 istat-menus
 mattermost
 mactex
-omnifocus
 sublime-text
 superduper
 turbo-boost-switcher

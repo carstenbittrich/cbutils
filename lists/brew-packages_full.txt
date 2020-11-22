@@ -1,0 +1,6 @@
+handbrake
+mkvtoolnix
+python
+python@2
+terminal-notifier
+youtube-dl
