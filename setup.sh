@@ -152,6 +152,11 @@ if [ `uname` == "Darwin" ]; then
             rm ~/Library/Application\ Support/Code/User/settings.json
             ln -s $CBUTILS/OtherSettings/vscode_settings.json ~/Library/Application\ Support/Code/User/settings.json
         fi
+        if [ ! -L ~/Library/Application\ Support/Code/User/keybindings.json ]
+        then
+            rm ~/Library/Application\ Support/Code/User/keybindings.json
+            ln -s $CBUTILS/OtherSettings/vscode_keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+        fi
     fi
     
     # LaTeX
