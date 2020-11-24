@@ -54,5 +54,6 @@
     ],
     "editor.wordWrap": "on",
     "editor.multiCursorModifier": "ctrlCmd",
-    "workbench.editor.showTabs": true
+    "workbench.editor.showTabs": true,
+    "editor.gotoLocation.multipleReferences": "goto"
 }
