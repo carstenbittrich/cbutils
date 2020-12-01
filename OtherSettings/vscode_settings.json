@@ -2,7 +2,7 @@
     "telemetry.enableTelemetry": false,
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "workbench.preferredDarkColorTheme": "Smyck",
     "editor.formatOnSave": true,
     "prettier.disableLanguages": [
@@ -55,5 +55,11 @@
     "editor.wordWrap": "on",
     "editor.multiCursorModifier": "ctrlCmd",
     "workbench.editor.showTabs": true,
-    "editor.gotoLocation.multipleReferences": "goto"
+    "editor.gotoLocation.multipleReferences": "goto",
+    "gitlens.hovers.annotations.enabled": false,
+    "gitlens.hovers.autolinks.enabled": false,
+    "gitlens.hovers.autolinks.enhanced": false,
+    "gitlens.hovers.enabled": false,
+    "plantuml.java": "/usr/bin/java",
+    "workbench.startupEditor": "newUntitledFile"
 }
