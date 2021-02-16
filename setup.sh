@@ -124,10 +124,10 @@ then
     then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
-    if [ ! -L $ZSH/custom ]
+    if [ ! -L $ZSH/cbcustom ]
     then
-        rm -rf $ZSH/custom
-        ln -s $PWD/OhMyZshCustom $ZSH/custom
+        rm -rf $ZSH/cbcustom
+        ln -s $PWD/OhMyZshCustom $ZSH/cbcustom
     fi
     
     if [ ! -e OhMyZshCustom/plugins/zsh-autosuggestions ]
