@@ -61,5 +61,13 @@
     "gitlens.hovers.autolinks.enhanced": false,
     "gitlens.hovers.enabled": false,
     "plantuml.java": "/usr/bin/java",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "python.pythonPath": "/usr/local/bin/python3",
+    "breadcrumbs.enabled": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    }
 }
