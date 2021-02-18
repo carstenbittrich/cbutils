@@ -1,12 +1,10 @@
 1password
-alfred
 moom
 arq
 bartender
 daisydisk
 dash
 dropbox
-fantastical 2
 firefox
 google-chrome
 intel-power-gadget
@@ -17,4 +15,3 @@ omnifocus
 sublime-text
 superduper
 turbo-boost-switcher
-vidyo
