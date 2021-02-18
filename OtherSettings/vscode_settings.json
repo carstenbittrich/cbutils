@@ -11,7 +11,6 @@
     "clang-format.executable": "${env.COL_LOCAL_CACHE_ROOT}/cmake_build_system/ExternalLibs/libclang/11.0.0_1602581062/Tools_MacOSX/clang-format",
     "editor.formatOnPaste": true,
     "prettier.prettierPath": "/usr/local/bin",
-    "workbench.colorTheme": "Smyck",
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
@@ -67,6 +66,7 @@
     },
     "python.pythonPath": "/usr/local/bin/python3",
     "breadcrumbs.enabled": true,
+    "workbench.colorTheme": "Smyck",
     "[python]": {
         "editor.defaultFormatter": "ms-python.python"
     }

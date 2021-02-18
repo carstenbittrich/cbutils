@@ -29,7 +29,7 @@ then
     
     if [ ! -e `xcrun --show-sdk-path`/usr/include ]
     then
-        read -p "Install command line tools? [yY/?]" -n 1 -r
+        read -p "Install command line tools? [yY/?]" -n 1 -r && echo ""
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
             xcode-select --install
@@ -43,7 +43,7 @@ then
     # set up brew
     if [ ! -e "/usr/local/bin/brew" ]
     then
-        read -p "Install homebrew? [yY/?]" -n 1 -r
+        read -p "Install homebrew? [yY/?]" -n 1 -r && echo ""
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
             export DOBREW=1
@@ -58,30 +58,30 @@ then
     
     if [ $DOBREW ]
     then
-        read -p "Install homebrew packages from lists/brew-packages.txt? [yY/?]" -n 1 -r
+        read -p "Install homebrew packages from lists/brew-packages.txt? [yY/?]" -n 1 -r && echo ""
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
             install_brew_list lists/brew-packages.txt
         fi
-        read -p "Install homebrew packages from lists/brew-packages_full.txt? [yY/?]" -n 1 -r
+        read -p "Install homebrew packages from lists/brew-packages_full.txt? [yY/?]" -n 1 -r && echo ""
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
             install_brew_list lists/brew-packages_full.txt
         fi
         
-        read -p "Install python2 from homebrew? [yY/?]" -n 1 -r
+        read -p "Install python2 from homebrew? [yY/?]" -n 1 -r && echo ""
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
             brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/86a44a0a552c673a05f11018459c9f5faae3becc/Formula/python@2.rb
         fi
         
         # install missing casks
-        read -p "Install brew casks from lists/brew-casks? [yY/?]" -n 1 -r
+        read -p "Install brew casks from lists/brew-casks? [yY/?]" -n 1 -r && echo ""
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
             install_brew_list lists/brew-casks.txt
         fi
-        read -p "Install brew casks from lists/brew-casks_full? [yY/?]" -n 1 -r
+        read -p "Install brew casks from lists/brew-casks_full? [yY/?]" -n 1 -r && echo ""
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
             install_brew_list lists/brew-casks_full.txt
@@ -117,18 +117,18 @@ else
     echo "zsh not available, using fallback bash"
 fi
 
-read -p "Install Oh-My-Zsh? [yY/?]" -n 1 -r
+read -p "Install Oh-My-Zsh? [yY/?]" -n 1 -r && echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     if [ ! -e $HOME/.oh-my-zsh ]
     then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
-    if [ ! -L $ZSH/cbcustom ]
+    if [ -L $ZSH/cbcustom ]
     then
         rm -rf $ZSH/cbcustom
-        ln -s $PWD/OhMyZshCustom $ZSH/cbcustom
     fi
+    ln -s $PWD/OhMyZshCustom $ZSH/cbcustom
     
     if [ ! -e OhMyZshCustom/plugins/zsh-autosuggestions ]
     then
@@ -166,6 +166,9 @@ if [ `uname` == "Darwin" ]; then
         sudo ln -s $PWD/latex /usr/local/texlive/texmf-local/tex/latex/local
         texhash /usr/local/texlive/texmf-local/tex/latex/local
     fi
+
+    # color scheme
+    open OtherSettings/Smyck.itermcolors
 fi
 
 # environment
@@ -191,7 +194,7 @@ fi
 
 # create link for each missing font from $CBUTILS/fonts
 # install power line fonts:
-read -p "Install power line fonts? [yY/?]" -n 1 -r
+read -p "Install power line fonts? [yY/?]" -n 1 -r && echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     git clone https://github.com/powerline/fonts.git --depth=1 temp_fonts_install
