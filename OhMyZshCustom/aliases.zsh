@@ -1,5 +1,4 @@
 alias ssh='ssh -Y'
-alias ls='ls --color'
 alias ll='ls -lhc'
 alias la='ls -alhc'
 alias less='less -R'
@@ -9,8 +8,11 @@ alias fuck='sudo $(history -p \!\!)'
 alias sshproxy='ssh -D 56789'
 alias nw='emacs -nw'
 
+setopt auto_cd
 alias ...='cd ../..'
-export IKTPWEB=iktpcopy:public_html
+
+source ~/.environment.sh
+
 export EDITOR="vim"
 
 # executables
@@ -26,3 +28,6 @@ export PYTHONTEMP=$CBUTILS/python/template.py
 
 ## C++
 export CPPTEMP=$CBUTILS/templates/cpp
+
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

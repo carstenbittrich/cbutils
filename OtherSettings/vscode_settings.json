@@ -1,0 +1,73 @@
+{
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    "window.zoomLevel": 2,
+    "workbench.preferredDarkColorTheme": "Smyck",
+    "editor.formatOnSave": true,
+    "prettier.disableLanguages": [
+        "C++"
+    ],
+    "clang-format.executable": "${env.COL_LOCAL_CACHE_ROOT}/cmake_build_system/ExternalLibs/libclang/11.0.0_1602581062/Tools_MacOSX/clang-format",
+    "editor.formatOnPaste": true,
+    "prettier.prettierPath": "/usr/local/bin",
+    "workbench.colorTheme": "Smyck",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "constant"
+                ],
+                "settings": {
+                    "foreground": "#f8B3ae"
+                }
+            }
+        ]
+    },
+    "workbench.colorCustomizations": {
+        "terminal.ansiBlack": "#000000",
+        "terminal.ansiRed": "#C75646",
+        "terminal.ansiGreen": "#8EB33B",
+        "terminal.ansiYellow": "#D0B03C",
+        "terminal.ansiBlue": "#4E90A7",
+        "terminal.ansiMagenta": "#C8A0D1",
+        "terminal.ansiCyan": "#218693",
+        "terminal.ansiWhite": "#B0B0B0",
+        "terminal.ansiBrightBlack": "#5D5D5D",
+        "terminal.ansiBrightRed": "#E09690",
+        "terminal.ansiBrightGreen": "#CDEE69",
+        "terminal.ansiBrightYellow": "#FFE377",
+        "terminal.ansiBrightBlue": "#9CD9F0",
+        "terminal.ansiBrightMagenta": "#FBB1F9",
+        "terminal.ansiBrightCyan": "#77DFD8",
+        "terminal.ansiBrightWhite": "#F7F7F7",
+        "terminal.foreground": "#F7F7F7",
+        "terminal.selectionBackground": "#77DFD8",
+        "gitDecoration.deletedResourceForeground": "#C75646"
+    },
+    "editor.renderWhitespace": "boundary",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "editor.wordWrap": "on",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "workbench.editor.showTabs": true,
+    "editor.gotoLocation.multipleReferences": "goto",
+    "gitlens.hovers.annotations.enabled": false,
+    "gitlens.hovers.autolinks.enabled": false,
+    "gitlens.hovers.autolinks.enhanced": false,
+    "gitlens.hovers.enabled": false,
+    "plantuml.java": "/usr/bin/java",
+    "workbench.startupEditor": "newUntitledFile",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "python.pythonPath": "/usr/local/bin/python3",
+    "breadcrumbs.enabled": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    }
+}

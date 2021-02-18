@@ -5,7 +5,7 @@ if [[ `uname` == "Darwin" ]]; then
     {
         qlmanage -p "$@" > /dev/null 2>&1
     }
-
+    
     function notify
     {
         eval $@;
@@ -15,20 +15,32 @@ if [[ `uname` == "Darwin" ]]; then
             terminal-notifier -message $@ -title Done -activate com.apple.Terminal
         fi
     }
-
+    
+    function install_brew_list() {
+        while read line
+        do
+            name=`echo $line | cut -d " " -f 1`
+            if [ `grep -c -e "^$name$" lists/brew-installed-list.txt` -ne 1 ]
+            then
+                echo "install $name"
+                brew install $name
+            fi
+        done < ${1}
+    }
+    
     function ropen
     {
         scp $@ /private/tmp/ropen_temp
         open /private/tmp/ropen_temp
     }
-
+    
     function sag
     {
         say -v "Yannick" "$@"
     }
 else
     # functions that won't run on mac OS
-
+    
     function pidwatch() {
         pidstat -hurd -p ${1} 5
     }
@@ -36,20 +48,20 @@ fi
 
 function after() {
     while [ $(ps ux | grep -c "$1") != 1 ]
-        do sleep 30
+    do sleep 30
     done
     echo "$1 done at $(date)"
 }
 
 function sshagentadd {
-  eval "$(ssh-agent -s)"
-  for KEY in id_{rsa,ed25519}
-  do
-    if [ -e $HOME/.ssh/${KEY} ]
-    then
-        ssh-add ~/.ssh/${KEY}
-    fi
-  done
+    eval "$(ssh-agent -s)"
+    for KEY in id_{rsa,ed25519}
+    do
+        if [ -e $HOME/.ssh/${KEY} ]
+        then
+            ssh-add ~/.ssh/${KEY}
+        fi
+    done
 }
 
 function newest {
@@ -111,11 +123,11 @@ function extract
 
 function afsinidesy {
     kinit -Rf cbittric@DESY.DE || kinit -f -l 25h -r 7d -k ~/.ssh/krb.keytab cbittric@DESY.DE
-        aklog -cell desy.de -k DESY.DE
+    aklog -cell desy.de -k DESY.DE
 }
 function afsinicern {
     kinit -Rf cbittric@CERN.CH || kinit -f -l 25h -r 7d cbittric@CERN.CH
-        aklog -cell cern.ch -k CERN.CH
+    aklog -cell cern.ch -k CERN.CH
 }
 
 function setupATLAS
@@ -134,7 +146,7 @@ function goto_samples
     setupATLAS
     lsetup rucio
     lsetup pyami
-
+    
     function download_files {
         rucio download --ndownloader 4 `egrep -v "#" -i ${1} | tr '/\n' ' '`
     }

@@ -1,0 +1,17 @@
+1password
+moom
+arq
+bartender
+daisydisk
+dash
+dropbox
+firefox
+google-chrome
+intel-power-gadget
+istat-menus
+mattermost
+mactex
+omnifocus
+sublime-text
+superduper
+turbo-boost-switcher

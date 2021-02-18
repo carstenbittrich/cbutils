@@ -1,6 +1,6 @@
 [user]
-	name = Carsten Bittrich
-	email = carsten.bittrich@icloud.com
+    name = Carsten Bittrich
+    email = carsten.bittrich@logmein.com
 [core]
     excludesfile = /Users/carsten/.gitignore_global
     quotepath = false
@@ -19,3 +19,4 @@
     wdiff = diff --color-words
     hist = log --graph --branches --oneline --decorate
     addnw=!sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+    root = rev-parse --show-toplevel
