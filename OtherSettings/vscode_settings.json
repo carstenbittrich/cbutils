@@ -4,7 +4,6 @@
     "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
     "window.zoomLevel": 2,
     "workbench.preferredDarkColorTheme": "Smyck",
-    "editor.formatOnSave": true,
     "prettier.disableLanguages": [
         "C++"
     ],
@@ -69,5 +68,17 @@
     "workbench.colorTheme": "Smyck",
     "[python]": {
         "editor.defaultFormatter": "ms-python.python"
+    },
+    "python.testing.pytestEnabled": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "eslint.format.enable": true,
+    "eslint.debug": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     }
 }
