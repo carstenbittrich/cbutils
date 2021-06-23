@@ -2,7 +2,6 @@
     "telemetry.enableTelemetry": false,
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
-    "window.zoomLevel": 2,
     "workbench.preferredDarkColorTheme": "Smyck",
     "editor.formatOnSave": true,
     "prettier.disableLanguages": [
@@ -46,12 +45,9 @@
         "gitDecoration.deletedResourceForeground": "#C75646"
     },
     "editor.renderWhitespace": "boundary",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "editor.wordWrap": "on",
     "editor.multiCursorModifier": "ctrlCmd",
     "workbench.editor.showTabs": true,
@@ -69,5 +65,21 @@
     "breadcrumbs.enabled": true,
     "[python]": {
         "editor.defaultFormatter": "ms-python.python"
-    }
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "eslint.format.enable": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "window.zoomLevel": 1,
 }

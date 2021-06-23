@@ -7,6 +7,7 @@ alias pack="tar -pczf"
 alias fuck='sudo $(history -p \!\!)'
 alias sshproxy='ssh -D 56789'
 alias nw='emacs -nw'
+alias nogit='source $CBUTILS/OhMyZshCustom/themes/cbutils_nogit.zsh-theme'
 
 setopt auto_cd
 alias ...='cd ../..'
