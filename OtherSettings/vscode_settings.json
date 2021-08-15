@@ -44,12 +44,9 @@
         "gitDecoration.deletedResourceForeground": "#C75646"
     },
     "editor.renderWhitespace": "boundary",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "editor.wordWrap": "on",
     "editor.multiCursorModifier": "ctrlCmd",
     "workbench.editor.showTabs": true,
@@ -80,5 +77,6 @@
     },
     "[javascript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    }
+    },
+    "editor.formatOnSave": true
 }
