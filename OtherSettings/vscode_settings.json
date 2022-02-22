@@ -3,7 +3,6 @@
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
     "workbench.preferredDarkColorTheme": "Smyck",
-    "editor.formatOnSave": true,
     "prettier.disableLanguages": [
         "C++"
     ],
@@ -73,16 +72,18 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[typescriptreact]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.testing.pytestEnabled": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "window.zoomLevel": 1,
     "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnSave": true,
     "remote.SSH.remotePlatform": {
         "JenkinsAgent": "windows"
-    },
+    }
 }

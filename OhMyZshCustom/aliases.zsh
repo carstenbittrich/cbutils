@@ -18,7 +18,7 @@ export EDITOR="vim"
 
 # executables
 PATH=/bin:$PATH;
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/python:$PATH;
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/python:/usr/local/sbin:$PATH;
 PATH=$CBUTILS/bin:$PATH;
 PATH=$HOME/bin:$PATH;
 export PATH
