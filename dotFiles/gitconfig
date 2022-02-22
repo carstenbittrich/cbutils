@@ -22,3 +22,5 @@
     addnw=!sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
     root = rev-parse --show-toplevel
     cleanDir = clean -f -d -x
+[pull]
+	ff = only

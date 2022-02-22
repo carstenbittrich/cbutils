@@ -48,7 +48,6 @@
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     "editor.wordWrap": "on",
-    "editor.multiCursorModifier": "ctrlCmd",
     "workbench.editor.showTabs": true,
     "editor.gotoLocation.multipleReferences": "goto",
     "gitlens.hovers.annotations.enabled": false,
@@ -82,4 +81,8 @@
     "python.defaultInterpreterPath": "/usr/bin/python3",
     "diffEditor.ignoreTrimWhitespace": false,
     "window.zoomLevel": 1,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "remote.SSH.remotePlatform": {
+        "JenkinsAgent": "windows"
+    },
 }
