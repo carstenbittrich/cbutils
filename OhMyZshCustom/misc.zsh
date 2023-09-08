@@ -12,4 +12,6 @@ bindkey 'æ' quote-line
 # [Alt+/] - commment/uncomment full line
 bindkey '÷' pound-insert
 
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
 # get those string combinations by running cat and entering desired key combination

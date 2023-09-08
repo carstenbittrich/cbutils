@@ -1,6 +1,6 @@
 [user]
     name = Carsten Bittrich
-    email = carsten.bittrich@logmein.com
+	email = carsten.bittrich@goto.com
 [core]
     excludesfile = /Users/carsten/.gitignore_global
     quotepath = false
@@ -24,3 +24,8 @@
     cleanDir = clean -f -d -x
 [pull]
 	ff = only
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

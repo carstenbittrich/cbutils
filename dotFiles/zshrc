@@ -1,6 +1,7 @@
 if [ -z "$PS1" ]; then
     return
 fi
+echo "Loading on-my-ZSH now"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -71,12 +72,16 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/cbcustom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-prompt zsh-autosuggestions)
+plugins=(git git-prompt zsh-autosuggestions zsh-syntax-highlighting)
+
 
 source ~/.environment.sh
 
+export VOLTA_HOME="$HOME/.volta"
+
 source $ZSH/oh-my-zsh.sh
 
+export PATH="$VOLTA_HOME/bin:$PATH"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
