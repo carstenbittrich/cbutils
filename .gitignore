@@ -8,3 +8,4 @@ SublimeSettings/oscrypto-ca-bundle.crt
 OhMyZshCustom/plugins/zsh-autosuggestions
 .DS_Store
 python/__pycache__/colorer.cpython-39.pyc
+OhMyZshCustom/plugins/zsh-syntax-highlighting
