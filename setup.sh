@@ -87,6 +87,16 @@ then
             install_brew_list lists/brew-casks_full.txt
         fi
     fi
+    read -p "Install VSCode extensions from lists/code-extensions.txt? [yY/?]" -n 1 -r && echo ""
+        if [[ $REPLY =~ ^[Yy]$ ]]
+        then
+            while read line
+            do
+                name=`echo $line | cut -d " " -f 1`
+                echo "install $name"
+                code --install-extension $name
+            done < lists/code-extensions.txt
+        fi
 fi
 
 # check if zsh shell available

@@ -25,3 +25,10 @@ then
 fi
 cp ~/Library/Preferences/com.apple.Terminal.plist $CBUTILS/OtherSettings/com.apple.Terminal.plist
 # apply by copying back
+
+# Terminal
+if [ -e $CBUTILS/lists/code-extensions.txt ]
+then
+    rm $CBUTILS/lists/code-extensions.txt
+fi
+code --list-extensions > $CBUTILS/lists/code-extensions.txt
